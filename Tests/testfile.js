@@ -1,6 +1,9 @@
 require("chromedriver")
 
+var chrome    = require('selenium-webdriver/chrome');
+
 var webdriver = require('selenium-webdriver')
+var options   = new chrome.Options().headless();
 const {
     By
 } = require('selenium-webdriver')
@@ -30,18 +33,12 @@ describe('Test Suite', function() {
 
 
     it("Selenium check Git sign In", async () => {
-        driver = new webdriver.Builder().forBrowser("chrome").build();
+        driver = new webdriver.Builder().forBrowser("chrome").setChromeOptions(options).build();
         await driver.get("https://github.com/login")
         this.AcceptButton = By.css(".js-sign-in-button")
 
         await driver.wait(webdriver.until.elementLocated(this.AcceptButton), 5000)
     })
-    it("Selenium check Git sign In Case 2", async () => {
-        driver = new webdriver.Builder().forBrowser("chrome").build();
-        await driver.get("https://github.com/login")
-        this.AcceptButton = By.css(".js-sign-in-button")
 
-        await driver.wait(webdriver.until.elementLocated(this.AcceptButton), 5000)
-    })
    
 })
