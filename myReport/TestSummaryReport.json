@@ -5,9 +5,9 @@
     "passes": 2,
     "pending": 0,
     "failures": 0,
-    "start": "2022-08-31T07:25:20.940Z",
-    "end": "2022-08-31T07:25:29.187Z",
-    "duration": 8247,
+    "start": "2022-08-31T07:30:15.930Z",
+    "end": "2022-08-31T07:30:24.106Z",
+    "duration": 8176,
     "testsRegistered": 2,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "fe2b083e-a235-47e1-a26d-a1c3b51de540",
+      "uuid": "5d3e646e-87a0-40f2-bdf4-7e438da36cc0",
       "title": "",
       "fullFile": "E:\\CloudPractioner\\selenium-nodejs\\Tests\\TestFile.js",
       "file": "\\Tests\\TestFile.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "41b5f4e7-c6ef-4cce-b110-07375df0955d",
+          "uuid": "480c1433-d458-4f10-ac6a-194b1a11a2a1",
           "title": "Test Suite",
           "fullFile": "E:\\CloudPractioner\\selenium-nodejs\\Tests\\TestFile.js",
           "file": "\\Tests\\TestFile.js",
@@ -36,7 +36,7 @@
               "title": "\"before all\" hook in \"Test Suite\"",
               "fullTitle": "Test Suite \"before all\" hook in \"Test Suite\"",
               "timedOut": false,
-              "duration": 5,
+              "duration": 1,
               "state": null,
               "speed": null,
               "pass": false,
@@ -45,8 +45,8 @@
               "context": null,
               "code": "console.log(\"Removing file \");\nif (fs.existsSync(htmldirname)) {\n    fs.unlinkSync(htmldirname);\n  }\n  if (fs.existsSync(dirname)) {\n    fs.unlinkSync(dirname);\n  }",
               "err": {},
-              "uuid": "0bfabb2d-2ef1-4178-b356-eba0eae0c14b",
-              "parentUUID": "41b5f4e7-c6ef-4cce-b110-07375df0955d",
+              "uuid": "e9f7f7f5-b920-4f38-8152-16001ca252f0",
+              "parentUUID": "480c1433-d458-4f10-ac6a-194b1a11a2a1",
               "isHook": true,
               "skipped": false
             }
@@ -65,8 +65,8 @@
               "context": null,
               "code": "let imageFileName = this.currentTest.title + '.jpeg';\n        driver.takeScreenshot().then(\n            function(image) {\n                require('fs').writeFileSync('./screenshots/' + imageFileName, image, 'base64')\n            }\n        )\n        addContext(this, 'Following comes the test image')\n        addContext(this, '../screenshots/' + imageFileName)",
               "err": {},
-              "uuid": "bc2a88cb-3a9f-44d1-b036-d588e44a0ac0",
-              "parentUUID": "41b5f4e7-c6ef-4cce-b110-07375df0955d",
+              "uuid": "a1822b4d-6eee-4e6e-9441-fcc251458c26",
+              "parentUUID": "480c1433-d458-4f10-ac6a-194b1a11a2a1",
               "isHook": true,
               "skipped": false
             },
@@ -74,7 +74,7 @@
               "title": "\"after each\" hook in \"Test Suite\"",
               "fullTitle": "Test Suite \"after each\" hook in \"Test Suite\"",
               "timedOut": false,
-              "duration": 287,
+              "duration": 280,
               "state": null,
               "speed": null,
               "pass": false,
@@ -83,8 +83,8 @@
               "context": null,
               "code": "await driver.quit();",
               "err": {},
-              "uuid": "2db8bc80-f5f7-4480-a97d-9a85033239de",
-              "parentUUID": "41b5f4e7-c6ef-4cce-b110-07375df0955d",
+              "uuid": "931dae35-e834-4ae7-a293-0e413232f55f",
+              "parentUUID": "480c1433-d458-4f10-ac6a-194b1a11a2a1",
               "isHook": true,
               "skipped": false
             }
@@ -94,7 +94,7 @@
               "title": "Selenium check Git sign In",
               "fullTitle": "Test Suite Selenium check Git sign In",
               "timedOut": false,
-              "duration": 3984,
+              "duration": 2677,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -103,8 +103,8 @@
               "context": "[\n  \"Following comes the test image\",\n  \"../screenshots/Selenium check Git sign In.jpeg\"\n]",
               "code": "driver = new webdriver.Builder().forBrowser(\"chrome\").setChromeOptions(options).build();\nawait driver.get(\"https://github.com/login\")\nthis.AcceptButton = By.css(\".js-sign-in-button\")\n\n      await driver.wait(webdriver.until.elementLocated(this.AcceptButton), 5000)",
               "err": {},
-              "uuid": "261336ee-7dfa-4326-9d71-a13efdc561ad",
-              "parentUUID": "41b5f4e7-c6ef-4cce-b110-07375df0955d",
+              "uuid": "256b3f1d-3e9f-4a76-8b3e-92093d212936",
+              "parentUUID": "480c1433-d458-4f10-ac6a-194b1a11a2a1",
               "isHook": false,
               "skipped": false
             },
@@ -112,7 +112,7 @@
               "title": "Selenium check Git sign Case 2",
               "fullTitle": "Test Suite Selenium check Git sign Case 2",
               "timedOut": false,
-              "duration": 3766,
+              "duration": 4339,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -121,21 +121,21 @@
               "context": "[\n  \"Following comes the test image\",\n  \"../screenshots/Selenium check Git sign Case 2.jpeg\"\n]",
               "code": "driver = new webdriver.Builder().forBrowser(\"chrome\").setChromeOptions(options).build();\nawait driver.get(\"https://github.com/login\")\nthis.AcceptButton = By.css(\".js-sign-in-button\")\n    \n      await driver.wait(webdriver.until.elementLocated(this.AcceptButton), 5000)",
               "err": {},
-              "uuid": "47828b75-fa75-4f30-a058-04a9c97780b7",
-              "parentUUID": "41b5f4e7-c6ef-4cce-b110-07375df0955d",
+              "uuid": "30a75eb2-c9ea-4bef-b739-e8f43c4af7de",
+              "parentUUID": "480c1433-d458-4f10-ac6a-194b1a11a2a1",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "261336ee-7dfa-4326-9d71-a13efdc561ad",
-            "47828b75-fa75-4f30-a058-04a9c97780b7"
+            "256b3f1d-3e9f-4a76-8b3e-92093d212936",
+            "30a75eb2-c9ea-4bef-b739-e8f43c4af7de"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 7750,
+          "duration": 7016,
           "root": false,
           "rootEmpty": false,
           "_timeout": 20000

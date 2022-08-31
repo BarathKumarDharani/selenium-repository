@@ -61,14 +61,22 @@ mocha.run(() =>
   })
   .on('end', function (test)
   {
-   if (fs.existsSync(htmldirname)) 
+   if(fs.existsSync(htmldirname))
    {
-      const fileContent = fs.readFileSync(htmldirname);
-      params = { Bucket: myBucket, Key: 'html',Body: fileContent};
-        s3.putObject(params, function (err, data)
+      fs.readFile(htmldirname, function (err, data)
       {
-        if (err) { console.log(err)}
-        else { console.log("Successfully uploaded data to general-bucket56/myKey");}
+        if (err)
+        {
+          throw err;
+        }
+        params = { Bucket: myBucket, Key: 'html',Body: data
+        };
+  
+       s3.putObject(params, function (err, data)
+        {
+          if (err) { console.log(err)}
+          else { console.log("Successfully uploaded data to myBucket/myKey");}
+        });
       });
    }
   
