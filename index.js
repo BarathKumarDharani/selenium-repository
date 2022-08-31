@@ -5,8 +5,9 @@ const glob = require("glob");
 
 var fs = require('fs');
 
-var s3 = new AWS.S3();
+
 var AWS = require('aws-sdk');
+var s3 = new AWS.S3();
 var fs = require('fs');
 let htmldirname = './myReport/TestSummaryReport.html';
 let dirname = './myReport/TestSummaryReport.json';
