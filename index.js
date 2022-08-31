@@ -8,7 +8,7 @@ var fs = require('fs');
 
 var AWS = require('aws-sdk');
 var s3 = new AWS.S3();
-var fs = require('fs');
+ 
 let htmldirname = './myReport/TestSummaryReport.html';
 let dirname = './myReport/TestSummaryReport.json';
 
@@ -61,19 +61,15 @@ mocha.run(() =>
   })
   .on('end', function (test)
   {
-    fs.readFile(htmldirname, function (err, data)
-    {
-      if (err)
-      {
-        throw err;
-      }
-      params = { Bucket: myBucket, Key: 'html',Body: data
-      };
-
-      s3.putObject(params, function (err, data)
+   if (fs.existsSync(htmldirname)) 
+   {
+      const fileContent = fs.readFileSync(htmldirname);
+      params = { Bucket: myBucket, Key: 'html',Body: fileContent};
+        s3.putObject(params, function (err, data)
       {
         if (err) { console.log(err)}
         else { console.log("Successfully uploaded data to general-bucket56/myKey");}
       });
-    });
+   }
+  
   });

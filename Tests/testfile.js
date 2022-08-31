@@ -1,7 +1,7 @@
 require("chromedriver")
 
 var chrome = require('selenium-webdriver/chrome');
-
+var fs = require('fs');
 var webdriver = require('selenium-webdriver')
 var options = new chrome.Options().headless();
 
@@ -18,8 +18,14 @@ describe('Test Suite', function() {
 
     before(function () {
         console.log("Removing file ");
-        require('fs').unlinkSync(htmldirname);
-        require('fs').unlinkSync(dirname);
+        if (fs.existsSync(htmldirname)) {
+            fs.unlinkSync(htmldirname);
+          }
+          if (fs.existsSync(dirname)) {
+            fs.unlinkSync(dirname);
+          }
+       
+       
       });
 
     afterEach(function() {
