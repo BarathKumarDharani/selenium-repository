@@ -3,7 +3,6 @@ const http = require('http');
 const path = require('path');
 const glob = require("glob");
 
-var AWS = require('aws-sdk');
 var fs = require('fs');
 
 var s3 = new AWS.S3();
@@ -61,19 +60,19 @@ mocha.run(() =>
   })
   .on('end', function (test)
   {
-    fs.readFile('htmldirname', function (err, data)
+    fs.readFile(htmldirname, function (err, data)
     {
       if (err)
       {
         throw err;
       }
-      params = { Bucket: myBucket, Key: myKey,Body: data
+      params = { Bucket: myBucket, Key: 'html',Body: data
       };
 
       s3.putObject(params, function (err, data)
       {
         if (err) { console.log(err)}
-        else { console.log("Successfully uploaded data to myBucket/myKey");}
+        else { console.log("Successfully uploaded data to general-bucket56/myKey");}
       });
     });
   });
