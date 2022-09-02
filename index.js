@@ -1,34 +1,27 @@
-const http = require('http');
+
 'use strict';
 const path = require('path');
 const glob = require("glob");
-
+let  zipdire  = './zip/created.zip';
 var fs = require('fs');
-
-
-var AWS = require('aws-sdk');
-var s3 = new AWS.S3();
- 
-let htmldirname = './myReport/TestSummaryReport.html';
-let dirname = './myReport/TestSummaryReport.json';
-
-var myBucket = 'general-bucket56';
-
-var myKey = 'html';
+var zipper = require('./zipper');
 
 const Mocha = require('mocha');
 const mocha = new Mocha(
 {
   reporter: 'mochawesome',
   timeout: '20000',
+  includeScreenshots:true,
   reporterOptions:
   {
-    reportDir: './myReport',
-    reportFilename: 'TestSummaryReport'
+    reportDir: './app-test-report/detailed-report/',
+    reportFilename: 'test-summary-report',
+    reportTitle: 'app-detailed-test-report'
 
-  }
+  },
+  screenshotsFolder:'./detailed-report/screenshots/'
 });
-const testDir = './Tests';
+const testDir = './test';
 const testFiles = glob.sync('**/*.js',
 {
   cwd: testDir
@@ -38,6 +31,9 @@ testFiles.forEach((file) => mocha.addFile(path.join(testDir, file)));
 
 mocha.run(() =>
   {
+    console.log('Inside run method ');
+    zipper.zipDirectory('./app-test-report',zipdire);
+
     console.log('OK');
   })
   .on('test', function (test)
@@ -61,23 +57,8 @@ mocha.run(() =>
   })
   .on('end', function (test)
   {
-   if(fs.existsSync(htmldirname))
-   {
-      fs.readFile(htmldirname, function (err, data)
-      {
-        if (err)
-        {
-          throw err;
-        }
-        params = { Bucket: myBucket, Key: 'html',Body: data
-        };
+    console.log("Inside End")
+ 
+
   
-       s3.putObject(params, function (err, data)
-        {
-          if (err) { console.log(err)}
-          else { console.log("Successfully uploaded data to myBucket/myKey");}
-        });
-      });
-   }
-  
-  });
+  })

@@ -5,9 +5,9 @@
     "passes": 2,
     "pending": 0,
     "failures": 0,
-    "start": "2022-08-31T07:30:15.930Z",
-    "end": "2022-08-31T07:30:24.106Z",
-    "duration": 8176,
+    "start": "2022-09-02T08:29:03.293Z",
+    "end": "2022-09-02T08:29:10.605Z",
+    "duration": 7312,
     "testsRegistered": 2,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,35 +18,35 @@
   },
   "results": [
     {
-      "uuid": "5d3e646e-87a0-40f2-bdf4-7e438da36cc0",
+      "uuid": "44df8d4e-5daa-4d06-b7ad-20742ea34b28",
       "title": "",
-      "fullFile": "E:\\CloudPractioner\\selenium-nodejs\\Tests\\TestFile.js",
-      "file": "\\Tests\\TestFile.js",
+      "fullFile": "E:\\CloudPractioner\\selenium-nodejs\\test\\apptest.js",
+      "file": "\\test\\apptest.js",
       "beforeHooks": [],
       "afterHooks": [],
       "tests": [],
       "suites": [
         {
-          "uuid": "480c1433-d458-4f10-ac6a-194b1a11a2a1",
+          "uuid": "615619c0-1039-46f4-8d67-a2664a0a9c7e",
           "title": "Test Suite",
-          "fullFile": "E:\\CloudPractioner\\selenium-nodejs\\Tests\\TestFile.js",
-          "file": "\\Tests\\TestFile.js",
+          "fullFile": "E:\\CloudPractioner\\selenium-nodejs\\test\\apptest.js",
+          "file": "\\test\\apptest.js",
           "beforeHooks": [
             {
               "title": "\"before all\" hook in \"Test Suite\"",
               "fullTitle": "Test Suite \"before all\" hook in \"Test Suite\"",
               "timedOut": false,
-              "duration": 1,
+              "duration": 7,
               "state": null,
               "speed": null,
               "pass": false,
               "fail": false,
               "pending": false,
               "context": null,
-              "code": "console.log(\"Removing file \");\nif (fs.existsSync(htmldirname)) {\n    fs.unlinkSync(htmldirname);\n  }\n  if (fs.existsSync(dirname)) {\n    fs.unlinkSync(dirname);\n  }",
+              "code": "console.log(\"Removing file \");\nif (fs.existsSync(htmldirname)) {\n    fs.unlinkSync(htmldirname);\n  }\n  if (fs.existsSync(dirname)) {\n    fs.unlinkSync(dirname);\n  }\n // fsextra.emptyDirSync(zipdire);",
               "err": {},
-              "uuid": "e9f7f7f5-b920-4f38-8152-16001ca252f0",
-              "parentUUID": "480c1433-d458-4f10-ac6a-194b1a11a2a1",
+              "uuid": "d7d6a268-0afe-4763-b096-c83acbc6e27f",
+              "parentUUID": "615619c0-1039-46f4-8d67-a2664a0a9c7e",
               "isHook": true,
               "skipped": false
             }
@@ -63,10 +63,10 @@
               "fail": false,
               "pending": false,
               "context": null,
-              "code": "let imageFileName = this.currentTest.title + '.jpeg';\n        driver.takeScreenshot().then(\n            function(image) {\n                require('fs').writeFileSync('./screenshots/' + imageFileName, image, 'base64')\n            }\n        )\n        addContext(this, 'Following comes the test image')\n        addContext(this, '../screenshots/' + imageFileName)",
+              "code": "let imageFileName = this.currentTest.title + '.jpeg';\n        driver.takeScreenshot().then(\n            function(image) {\n                require('fs').writeFileSync('./app-test-report/detailed-report/screenshots/'+imageFileName, image, 'base64')\n            }\n        )\n        addContext(this, 'Following comes the test image')\n        addContext(this,'./screenshots/'+ imageFileName)",
               "err": {},
-              "uuid": "a1822b4d-6eee-4e6e-9441-fcc251458c26",
-              "parentUUID": "480c1433-d458-4f10-ac6a-194b1a11a2a1",
+              "uuid": "57bb46af-769a-4715-b158-0b69f00764f0",
+              "parentUUID": "615619c0-1039-46f4-8d67-a2664a0a9c7e",
               "isHook": true,
               "skipped": false
             },
@@ -74,7 +74,7 @@
               "title": "\"after each\" hook in \"Test Suite\"",
               "fullTitle": "Test Suite \"after each\" hook in \"Test Suite\"",
               "timedOut": false,
-              "duration": 280,
+              "duration": 135,
               "state": null,
               "speed": null,
               "pass": false,
@@ -83,59 +83,59 @@
               "context": null,
               "code": "await driver.quit();",
               "err": {},
-              "uuid": "931dae35-e834-4ae7-a293-0e413232f55f",
-              "parentUUID": "480c1433-d458-4f10-ac6a-194b1a11a2a1",
+              "uuid": "ec623653-20b0-458a-a3fd-64a9538d7a40",
+              "parentUUID": "615619c0-1039-46f4-8d67-a2664a0a9c7e",
               "isHook": true,
               "skipped": false
             }
           ],
           "tests": [
             {
-              "title": "Selenium check Git sign In",
-              "fullTitle": "Test Suite Selenium check Git sign In",
+              "title": "Login_test2",
+              "fullTitle": "Test Suite Login_test2",
               "timedOut": false,
-              "duration": 2677,
+              "duration": 3087,
               "state": "passed",
               "speed": "slow",
               "pass": true,
               "fail": false,
               "pending": false,
-              "context": "[\n  \"Following comes the test image\",\n  \"../screenshots/Selenium check Git sign In.jpeg\"\n]",
+              "context": "[\n  \"Following comes the test image\",\n  \"./screenshots/Login_test2.jpeg\"\n]",
               "code": "driver = new webdriver.Builder().forBrowser(\"chrome\").setChromeOptions(options).build();\nawait driver.get(\"https://github.com/login\")\nthis.AcceptButton = By.css(\".js-sign-in-button\")\n\n      await driver.wait(webdriver.until.elementLocated(this.AcceptButton), 5000)",
               "err": {},
-              "uuid": "256b3f1d-3e9f-4a76-8b3e-92093d212936",
-              "parentUUID": "480c1433-d458-4f10-ac6a-194b1a11a2a1",
+              "uuid": "66aab647-0cce-4eab-bc93-2e9ce88efe26",
+              "parentUUID": "615619c0-1039-46f4-8d67-a2664a0a9c7e",
               "isHook": false,
               "skipped": false
             },
             {
-              "title": "Selenium check Git sign Case 2",
-              "fullTitle": "Test Suite Selenium check Git sign Case 2",
+              "title": "Login_Test",
+              "fullTitle": "Test Suite Login_Test",
               "timedOut": false,
-              "duration": 4339,
+              "duration": 3932,
               "state": "passed",
               "speed": "slow",
               "pass": true,
               "fail": false,
               "pending": false,
-              "context": "[\n  \"Following comes the test image\",\n  \"../screenshots/Selenium check Git sign Case 2.jpeg\"\n]",
+              "context": "[\n  \"Following comes the test image\",\n  \"./screenshots/Login_Test.jpeg\"\n]",
               "code": "driver = new webdriver.Builder().forBrowser(\"chrome\").setChromeOptions(options).build();\nawait driver.get(\"https://github.com/login\")\nthis.AcceptButton = By.css(\".js-sign-in-button\")\n    \n      await driver.wait(webdriver.until.elementLocated(this.AcceptButton), 5000)",
               "err": {},
-              "uuid": "30a75eb2-c9ea-4bef-b739-e8f43c4af7de",
-              "parentUUID": "480c1433-d458-4f10-ac6a-194b1a11a2a1",
+              "uuid": "195e8702-1f35-42c7-9db1-cb39b40a1d54",
+              "parentUUID": "615619c0-1039-46f4-8d67-a2664a0a9c7e",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "256b3f1d-3e9f-4a76-8b3e-92093d212936",
-            "30a75eb2-c9ea-4bef-b739-e8f43c4af7de"
+            "66aab647-0cce-4eab-bc93-2e9ce88efe26",
+            "195e8702-1f35-42c7-9db1-cb39b40a1d54"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 7016,
+          "duration": 7019,
           "root": false,
           "rootEmpty": false,
           "_timeout": 20000
@@ -158,7 +158,7 @@
     "mochawesome": {
       "options": {
         "quiet": false,
-        "reportFilename": "TestSummaryReport",
+        "reportFilename": "test-summary-report",
         "saveHtml": true,
         "saveJson": true,
         "consoleReporter": "spec",
@@ -169,8 +169,9 @@
     },
     "marge": {
       "options": {
-        "reportDir": "./myReport",
-        "reportFilename": "TestSummaryReport"
+        "reportDir": "./app-test-report/detailed-report/",
+        "reportFilename": "test-summary-report",
+        "reportTitle": "app-detailed-test-report"
       },
       "version": "6.2.0"
     }

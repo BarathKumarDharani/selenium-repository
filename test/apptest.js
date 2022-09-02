@@ -5,8 +5,11 @@ var fs = require('fs');
 var webdriver = require('selenium-webdriver')
 var options = new chrome.Options().headless();
 
-let htmldirname = './myReport/TestSummaryReport.html';
-let  dirname  = './myReport/TestSummaryReport.json';
+let htmldirname = './detailed-report/test-summary-report.html';
+let  dirname  = './detailed-report/test-summary-report.json';
+let  zipdire  = './zip';
+var fsextra = require('fs-extra');
+
 const {
     By
 } = require('selenium-webdriver')
@@ -24,7 +27,9 @@ describe('Test Suite', function() {
           if (fs.existsSync(dirname)) {
             fs.unlinkSync(dirname);
           }
-       
+
+         // fsextra.emptyDirSync(zipdire);
+      
        
       });
 
@@ -33,12 +38,12 @@ describe('Test Suite', function() {
         let imageFileName = this.currentTest.title + '.jpeg';
         driver.takeScreenshot().then(
             function(image) {
-                require('fs').writeFileSync('./screenshots/' + imageFileName, image, 'base64')
+                require('fs').writeFileSync('./app-test-report/detailed-report/screenshots/'+imageFileName, image, 'base64')
             }
 
         )
         addContext(this, 'Following comes the test image')
-        addContext(this, '../screenshots/' + imageFileName)
+        addContext(this,'./screenshots/'+ imageFileName)
 
     })
 
@@ -48,7 +53,7 @@ describe('Test Suite', function() {
     })
 
 
-    it("Selenium check Git sign In", async () => {
+    it("Login_test2", async () => {
         driver = new webdriver.Builder().forBrowser("chrome").setChromeOptions(options).build();
         await driver.get("https://github.com/login")
         this.AcceptButton = By.css(".js-sign-in-button")
@@ -57,7 +62,7 @@ describe('Test Suite', function() {
         
     })
 
-    it("Selenium check Git sign Case 2", async () => {
+    it("Login_Test", async () => {
         driver = new webdriver.Builder().forBrowser("chrome").setChromeOptions(options).build();
         await driver.get("https://github.com/login")
         this.AcceptButton = By.css(".js-sign-in-button")
@@ -65,5 +70,6 @@ describe('Test Suite', function() {
       await driver.wait(webdriver.until.elementLocated(this.AcceptButton), 5000)
         
     })
+
 
 })
